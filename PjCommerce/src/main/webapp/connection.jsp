@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://hasni.fr/tld/Login" prefix="log" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 	
 	<br><br><br><br><br>
 	
-	<div class="container">
+	<div class="container"style="width: 600px;">
 		<div class="card">
 	
 			<form action="ServletA?flag=connect" method="POST" >

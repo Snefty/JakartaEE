@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +14,15 @@
 <title>PjCommerce</title>
 </head>
 <body>
-
+	
+	<%
+	
+	if(session.isNew()) {
+		request.getRequestDispatcher("/connection.jsp").forward(request, response);
+	}
+	
+	%>
+	
 	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="articleAdmin.jsp">PjCommerce</a>
@@ -48,7 +58,7 @@
 						<a
 							class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							href="#" role="button" aria-haspopup="true" aria-expanded="false">
-								Compte de <c:out value="${ login.getLogin() }" default="null"></c:out>
+								Compte de <c:out value="${ login.getLogin() }" default="null"/>
 						</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="#">Action</a> <a
@@ -71,8 +81,8 @@
 	</nav>
 
 	<div style="position: static; margin: 5px;">
-		<button type="button" class="btn btn-warning">Modifier</button>
-		<button type="button" class="btn btn-danger">Supprimer</button>
+		<a type="button" class="btn btn-success" href="ajouterArticle.jsp">Ajouter Article</a>
+		<a type="button" class="btn btn-danger" href="supprimerArticle.jsp">Supprimer Article</a>
 	</div>
 
 	<div style="width: 100%; height: 100%; overflow-y: scroll;">

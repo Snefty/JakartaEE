@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,25 +16,20 @@ public class Users {
 	private String tel;
 	private int age;
 	private String sexe;
-	private int idCompte;
 	
-	public Users(int idUsers, String fName, String lName, String adresse, String tel, int age, String sexe, int idCompte) {
-		this.idUsers = idUsers;
-		this.fName = fName;
-		this.lName = lName;
-		this.adresse = adresse;
-		this.tel = tel;
-		this.age = age;
-		this.sexe = sexe;
-		this.idCompte = idCompte;
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="idUsers")
+	private Set<Compte> comptes;
+	
+	public Set<Compte> getComptes() {
+		return comptes;
+	}
+	public void setComptes(Set<Compte> comptes) {
+		this.comptes = comptes;
 	}
 	
 	public int getIdUsers() {
 		return idUsers;
-	}
-
-	public void setIdCompte(int idCompte) {
-		this.idCompte = idCompte;
 	}
 
 	public String getfName() {
@@ -83,8 +80,10 @@ public class Users {
 		this.sexe = sexe;
 	}
 
-	public int getIdCompte() {
-		return idCompte;
+	@Override
+	public String toString() {
+		return "Users [idUsers=" + idUsers + ", fName=" + fName + ", lName=" + lName + ", adresse=" + adresse + ", tel="
+				+ tel + ", age=" + age + ", sexe=" + sexe + "]";
 	}
 	
 }

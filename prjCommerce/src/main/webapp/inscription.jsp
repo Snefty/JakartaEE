@@ -26,7 +26,7 @@
 	<div class="container">
 		<div class="card">
 
-			<form action="ServletA?flag=inscri" method="POST">
+			<form action="ServletA?flag=inscrit" method="POST">
 				<fieldset style="margin: 35px;">
 					<div style="text-align: center;">
 						<h4>Inscription</h4>
@@ -82,7 +82,7 @@
 					
 					<div class="form-group">
 						<label class="form-label mt-4">Mot de passe (confirmation) :</label> <input
-							type="text" class="form-control" id="pwd2" name="pwd"
+							type="text" class="form-control" id="pwd2" name="pwd2"
 							placeholder="Enter password">
 					</div>
 

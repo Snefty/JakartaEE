@@ -96,7 +96,7 @@
 				<th>Categorie</th>
 				<th>Action</th>
 			</tr>
-			<c:forEach var="row" items="${BaseDonnéeArticle}">
+			<c:forEach var="row" items="${afficheArticle}">
 				<tr>
 					<td><c:out value="${row.getIdArticle()}" /></td>
 					<td><c:out value="${row.getDesignation()}" /></td>

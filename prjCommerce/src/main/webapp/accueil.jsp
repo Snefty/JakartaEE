@@ -17,7 +17,7 @@
 
 	<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="Accueil.jsp">PjCommerce</a>
+			<a class="navbar-brand" href="accueil.jsp">PjCommerce</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarColor01"
 				aria-controls="navbarColor01" aria-expanded="false"
@@ -33,16 +33,16 @@
 					<li class="nav-item"><a class="nav-link" href="connection.jsp">Se
 							connecter </a></li>
 
-					<!--<li class="nav-item dropdown"><a
+					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-						href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+						href="#" role="button" aria-haspopup="true" aria-expanded="false">Info</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="#">Action</a> <a
 								class="dropdown-item" href="#">Another action</a> <a
 								class="dropdown-item" href="#">Something else here</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Separated link</a>
-						</div></li>-->
+						</div></li>
 				</ul>
 				<form class="d-flex">
 					<input class="form-control me-sm-2" type="search"
@@ -53,21 +53,19 @@
 		</div>
 	</nav>
 
-	<c:choose>
-		<c:when test="${empty sessionScope.login}">
 			<div style="width: 100%; height: 100%; overflow-y: scroll;">
 
 				<!-- A REVOIR POUR SECURITE -->
 				<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
-					url="jdbc:mysql://localhost:3306/prjCommerce" user="root"
+					url="jdbc:mysql://localhost:3306/prjcommerce2" user="root"
 					password="" />
 
 				<sql:query var="Articles" dataSource="${db}">
   		  	SELECT a.*, c.designationCategorie
 			FROM article AS a JOIN categorie AS c 
 			ON a.idCategorie = c.idCategorie 
-			ORDER BY a.idArticle ASC
-		</sql:query>
+			ORDER BY a.idArticle ASC;
+				</sql:query>
 
 				<table class="table table-striped table-hover">
 					<tr>
@@ -88,20 +86,6 @@
 					</c:forEach>
 				</table>
 			</div>
-		</c:when>
-		<c:when test="${!empty login}">
-			<c:if test="${ login.getAction() == 's' }">
-				<%
-					request.getRequestDispatcher("/articleSimple.jsp").forward(request, response);
-				%>
-			</c:if>
-			<c:if test="${ login.getAction() == 'a' }">
-				<%
-					request.getRequestDispatcher("/articleAdmin.jsp").forward(request, response);
-				%>
-			</c:if>
-		</c:when>
-	</c:choose>
 
 </body>
 </html>

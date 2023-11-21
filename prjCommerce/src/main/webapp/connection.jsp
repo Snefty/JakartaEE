@@ -51,7 +51,7 @@
 					
 					<div class="container aqua">
 					 <!-- Structure if tertiaire -->
-						<p class="${empty erreurs ? 'succes' : 'erreur'}">${resultat}</p>
+						<p class="${!empty LogImpo ? 'succes' : 'erreur'}">${LogImpo}</p>
 					</div>
 				</fieldset>
 			</form>

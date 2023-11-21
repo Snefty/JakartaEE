@@ -14,12 +14,8 @@ public class Compte {
 	private String pwd;
 	private String type;
 	
-	
-	public Compte(int idCompte, String login, String pwd) {
-		this.idCompte = idCompte;
-		this.login = login;
-		this.pwd = pwd;
-		this.type = "s";
+	public int getIdCompte() {
+		return idCompte;
 	}
 
 	public String getType() {
@@ -50,5 +46,5 @@ public class Compte {
 	public String toString() {
 		return "Compte [idCompte=" + idCompte + ", login=" + login + ", pwd=" + pwd + ", type=" + type + "]";
 	}
-	
+
 }
